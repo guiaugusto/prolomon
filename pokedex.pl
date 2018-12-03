@@ -49,6 +49,25 @@ list_all_pokemons() :-
     write('--------------------------'), nl)), nl, nl,
     start_use.
 
+list_pokemons_type(FirstType) :-
+    nl, findall(FirstType, pokemon(_, _, FirstType, _, _, _, _, _, _, _, _, _), Lista),
+    forall(pokemon(Id, NomePokemon, FirstType, SecondType, Total, HP, Attack, Defense, SpAtk, SpDef, Speed, Generation),
+    (nl, write('--------INFORMAÇÃO--------'), nl,
+    write('ID: '),write(Id), nl,
+    write('Nome: '),write(NomePokemon), nl,
+    write('Tipo: '),write(FirstType), write(' - '), write(SecondType), nl,
+    write('HP: '),write(HP), nl,
+    write('Attack: '),write(Attack), nl,
+    write('Defense: '),write(Defense), nl,
+    write('SpAtk: '),write(SpAtk), nl,
+    write('SpDef: '),write(SpDef), nl,
+    write('Speed: '),write(Speed), nl,
+    write('Total: '),write(Total), nl,
+    write('Geração: '),write(Generation), nl,
+    write('--------------------------'), nl)), nl, nl,
+    start_use.
+
+
 end_pokedex :-
     nl, nl, write('Volte sempre!'), nl, nl, !, halt.
 
