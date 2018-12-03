@@ -20,7 +20,7 @@ option(1) :-
 
 option(2) :-
     nl, write('Digite o nome do pokemon a ser pesquisado'), nl,
-    read(Nome), list_pokemons_name(Nome).
+    read(NomePokemon), list_pokemons_name(NomePokemon).
 
 option(3) :-
     nl, write('Digite o primeiro tipo do pokemon a ser pesquisado:'), nl,
@@ -85,8 +85,8 @@ list_pokemons_id(Id) :-
     write('--------------------------'), nl)), nl, nl,
     start_use.
 
-list_pokemons_name(Nome) :-
-    nl, findall(Nome, pokemon(_, Nome, _, _, _, _, _, _, _, _, _, _), Lista),
+list_pokemons_name(NomePokemon) :-
+    nl, findall(NomePokemon, pokemon(_, NomePokemon, _, _, _, _, _, _, _, _, _, _), Lista),
     forall(pokemon(Id, NomePokemon, FirstType, SecondType, Total, HP, Attack, Defense, SpAtk, SpDef, Speed, Generation),
     (nl, write('--------INFORMAÇÃO--------'), nl,
     write('ID: '),write(Id), nl,
